@@ -29,5 +29,8 @@
 </table>
 
 <br>
+<br>
+
+<%= link_to 'Send Newsletter', UserMailer.newsletter.deliver_now, remote: true %>
 
 </div>
