@@ -15,8 +15,9 @@ city = ['NewYork','Moscow','Berlin','Beijin','Tokyo','Amsterdam']
 citycode = ['70200','56800','45100','47600','75865','12345']
 phone = ['0606060606','0616161616','0612121212','0615151515','0618181818','0695959595',]
 gender = ["F", "M"]
+subscribe = [true, false]
 10. times do |i|
-        User.create!(:username => "User#{i+1}", email: "email#{i+1}@email.com", password:"password#{i+1}", password_confirmation:"password#{i+1}", gender: gender.sample, city: city.sample, citycode: citycode.sample, phone: phone.sample)
+        User.create!(:username => "User#{i+1}", email: "email#{i+1}@email.com", password:"password#{i+1}", password_confirmation:"password#{i+1}", gender: gender.sample, city: city.sample, citycode: citycode.sample, phone: phone.sample, subscribe: subscribe.sample)
 end
 
 # # Use these variable to  populate text zones
