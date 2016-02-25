@@ -3849,3 +3849,59 @@ Processing by UsersController#index as HTML
   [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
   Rendered users/index.html.erb within layouts/application (3.7ms)
 Completed 200 OK in 84ms (Views: 79.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-25 19:58:33 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (33.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 32ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-02-25 19:58:34 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (66.8ms)
+Completed 200 OK in 1151ms (Views: 1005.7ms | ActiveRecord: 82.9ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-02-25 19:58:42 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ssQMP26vdVzSgsyL7R8PC4ldqPKeJCXfKvLQGMmSznDe06nkKWZGbLY/eRNQ5UEXf1E4JQuP8jiekGYDjB7a4w==", "user"=>{"email"=>"admin@admin.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (49.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "admin@admin.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4  [["current_sign_in_at", "2016-02-25 18:58:43.212803"], ["sign_in_count", 2], ["updated_at", "2016-02-25 18:58:43.214336"], ["id", 24]]
+  [1m[36m (16.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 421ms (ActiveRecord: 66.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-25 19:58:43 +0100
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 24]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 82ms (Views: 76.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-25 20:50:08 +0100
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-02-25 20:50:08 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 61ms (Views: 60.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-abc1b9d0534d50363d918f05ba0bdf7daa7686cd8f3f919250ae7884b419c866.css?body=1" for 127.0.0.1 at 2016-02-25 20:50:09 +0100
+
+
+Started GET "/assets/dataTables/jquery.dataTables.self-770bf6f5f52c93784a25c3c866719f24d091a3f864c36850a7d338b58bbed52c.js?body=1" for 127.0.0.1 at 2016-02-25 20:50:09 +0100
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.self-447fa22a7aa12f01eaf2d37b45bd9b5321653e6629d888973a478ba856099083.js?body=1" for 127.0.0.1 at 2016-02-25 20:50:09 +0100
+
+
+Started GET "/assets/application.self-2d6ccfa774e623279bb152b980a7fdd4edcdf62cded5b0ab2bd35dd46b0952e5.js?body=1" for 127.0.0.1 at 2016-02-25 20:50:09 +0100
