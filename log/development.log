@@ -3905,3 +3905,753 @@ Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.self-447
 
 
 Started GET "/assets/application.self-2d6ccfa774e623279bb152b980a7fdd4edcdf62cded5b0ab2bd35dd46b0952e5.js?body=1" for 127.0.0.1 at 2016-02-25 20:50:09 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (33.2ms)[0m  DELETE FROM "users"
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.com' LIMIT 1
+  [1m[36mSQL (74.5ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@admin.com"], ["encrypted_password", "$2a$10$I63tGfPvr.pdqt1EJ0lBWeainj/proQidjo6rxmFep4YjU2ttyi8O"], ["created_at", "2016-02-25 20:14:20.466904"], ["updated_at", "2016-02-25 20:14:20.466904"]]
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (1.9ms)
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.3ms)
+
+UserMailer#welcome_email: processed outbound mail in 282.8ms
+
+Sent mail to admin@admin.com (165.7ms)
+Date: Thu, 25 Feb 2016 21:14:20 +0100
+From: from@example.com
+To: admin@admin.com
+Message-ID: <56cf609cd3f6b_27e2fa7968806f1@simplon-HP-16.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56cf609cd07fc_27e2fa796880568";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56cf609cd07fc_27e2fa796880568
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, 
+===============================================
+
+You have successfully signed up to example.com,
+your username is: .
+
+To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+
+Thanks for joining and have a great day!
+
+
+----==_mimepart_56cf609cd07fc_27e2fa796880568
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, </h1>
+    <p>
+      You have successfully signed up to example.com
+      <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_56cf609cd07fc_27e2fa796880568--
+
+  [1m[35m (78.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'email1@email.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "gender", "city", "citycode", "phone", "subscribe", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "User1"], ["email", "email1@email.com"], ["encrypted_password", "$2a$10$tr0J23dbP6uFb6u6qcqxvuHagvq3Df8X.HjmjIwp62KP4zusufHFS"], ["gender", "M"], ["city", "Berlin"], ["citycode", "56800"], ["phone", "0606060606"], ["subscribe", "t"], ["created_at", "2016-02-25 20:14:21.180386"], ["updated_at", "2016-02-25 20:14:21.180386"]]
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.0ms)
+
+UserMailer#welcome_email: processed outbound mail in 9.5ms
+
+Sent mail to email1@email.com (21.4ms)
+Date: Thu, 25 Feb 2016 21:14:21 +0100
+From: from@example.com
+To: email1@email.com
+Message-ID: <56cf609d2f582_27e2fa79688087d@simplon-HP-16.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56cf609d2e2c7_27e2fa7968807b7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56cf609d2e2c7_27e2fa7968807b7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, User1
+===============================================
+
+You have successfully signed up to example.com,
+your username is: User1.
+
+To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+
+Thanks for joining and have a great day!
+
+
+----==_mimepart_56cf609d2e2c7_27e2fa7968807b7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, User1</h1>
+    <p>
+      You have successfully signed up to example.com
+      <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_56cf609d2e2c7_27e2fa7968807b7--
+
+  [1m[35m (40.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'email2@email.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "gender", "city", "citycode", "phone", "subscribe", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "User2"], ["email", "email2@email.com"], ["encrypted_password", "$2a$10$dXJ2hULPQJGddbtdcRaQtuh6wyXheLrvQ/NwCBM5LKeELPsQDrHBe"], ["gender", "F"], ["city", "Tokyo"], ["citycode", "75865"], ["phone", "0616161616"], ["subscribe", "t"], ["created_at", "2016-02-25 20:14:21.338143"], ["updated_at", "2016-02-25 20:14:21.338143"]]
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.0ms)
+
+UserMailer#welcome_email: processed outbound mail in 9.8ms
+
+Sent mail to email2@email.com (24.0ms)
+Date: Thu, 25 Feb 2016 21:14:21 +0100
+From: from@example.com
+To: email2@email.com
+Message-ID: <56cf609d55db6_27e2fa796881031@simplon-HP-16.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56cf609d54bd9_27e2fa79688093b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56cf609d54bd9_27e2fa79688093b
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, User2
+===============================================
+
+You have successfully signed up to example.com,
+your username is: User2.
+
+To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+
+Thanks for joining and have a great day!
+
+
+----==_mimepart_56cf609d54bd9_27e2fa79688093b
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, User2</h1>
+    <p>
+      You have successfully signed up to example.com
+      <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_56cf609d54bd9_27e2fa79688093b--
+
+  [1m[35m (21.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'email3@email.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "gender", "city", "citycode", "phone", "subscribe", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "User3"], ["email", "email3@email.com"], ["encrypted_password", "$2a$10$TS/4/JVxYHKxD5uFLTzAh.NMoHYPCFAK90/Q5dlhypUd7wpeGsLH6"], ["gender", "M"], ["city", "Moscow"], ["citycode", "56800"], ["phone", "0618181818"], ["subscribe", "f"], ["created_at", "2016-02-25 20:14:21.484725"], ["updated_at", "2016-02-25 20:14:21.484725"]]
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.0ms)
+
+UserMailer#welcome_email: processed outbound mail in 9.9ms
+
+Sent mail to email3@email.com (21.7ms)
+Date: Thu, 25 Feb 2016 21:14:21 +0100
+From: from@example.com
+To: email3@email.com
+Message-ID: <56cf609d799d1_27e2fa796881237@simplon-HP-16.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56cf609d788e4_27e2fa796881178";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56cf609d788e4_27e2fa796881178
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, User3
+===============================================
+
+You have successfully signed up to example.com,
+your username is: User3.
+
+To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+
+Thanks for joining and have a great day!
+
+
+----==_mimepart_56cf609d788e4_27e2fa796881178
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, User3</h1>
+    <p>
+      You have successfully signed up to example.com
+      <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_56cf609d788e4_27e2fa796881178--
+
+  [1m[35m (2.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'email4@email.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "gender", "city", "citycode", "phone", "subscribe", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "User4"], ["email", "email4@email.com"], ["encrypted_password", "$2a$10$QlTZWhIIY3PvSiXFn3vBZ.mLnWW/tSXz6tyeN2Ts1d34NHnxdTuGC"], ["gender", "M"], ["city", "NewYork"], ["citycode", "47600"], ["phone", "0616161616"], ["subscribe", "f"], ["created_at", "2016-02-25 20:14:21.605012"], ["updated_at", "2016-02-25 20:14:21.605012"]]
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.1ms)
+
+UserMailer#welcome_email: processed outbound mail in 10.9ms
+
+Sent mail to email4@email.com (19.7ms)
+Date: Thu, 25 Feb 2016 21:14:21 +0100
+From: from@example.com
+To: email4@email.com
+Message-ID: <56cf609d973d7_27e2fa796881427@simplon-HP-16.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56cf609d9628b_27e2fa796881352";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56cf609d9628b_27e2fa796881352
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, User4
+===============================================
+
+You have successfully signed up to example.com,
+your username is: User4.
+
+To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+
+Thanks for joining and have a great day!
+
+
+----==_mimepart_56cf609d9628b_27e2fa796881352
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, User4</h1>
+    <p>
+      You have successfully signed up to example.com
+      <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_56cf609d9628b_27e2fa796881352--
+
+  [1m[35m (8.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'email5@email.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "gender", "city", "citycode", "phone", "subscribe", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "User5"], ["email", "email5@email.com"], ["encrypted_password", "$2a$10$FUEfAV/GNO.U0QRCR7SSKuJ0ipxRToH7t1tQgBT4Qrs0R3qN66eT6"], ["gender", "F"], ["city", "Berlin"], ["citycode", "70200"], ["phone", "0616161616"], ["subscribe", "f"], ["created_at", "2016-02-25 20:14:21.732831"], ["updated_at", "2016-02-25 20:14:21.732831"]]
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.1ms)
+
+UserMailer#welcome_email: processed outbound mail in 14.8ms
+
+Sent mail to email5@email.com (22.4ms)
+Date: Thu, 25 Feb 2016 21:14:21 +0100
+From: from@example.com
+To: email5@email.com
+Message-ID: <56cf609db7995_27e2fa796881695@simplon-HP-16.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56cf609db582a_27e2fa796881559";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56cf609db582a_27e2fa796881559
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, User5
+===============================================
+
+You have successfully signed up to example.com,
+your username is: User5.
+
+To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+
+Thanks for joining and have a great day!
+
+
+----==_mimepart_56cf609db582a_27e2fa796881559
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, User5</h1>
+    <p>
+      You have successfully signed up to example.com
+      <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_56cf609db582a_27e2fa796881559--
+
+  [1m[35m (6.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'email6@email.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "gender", "city", "citycode", "phone", "subscribe", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "User6"], ["email", "email6@email.com"], ["encrypted_password", "$2a$10$NzUHXNwngPUcGaL1UONsaewkxmL9hL46vGqlW1KHOvMaZN.sQ2/Va"], ["gender", "F"], ["city", "Berlin"], ["citycode", "70200"], ["phone", "0695959595"], ["subscribe", "t"], ["created_at", "2016-02-25 20:14:21.864906"], ["updated_at", "2016-02-25 20:14:21.864906"]]
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.0ms)
+
+UserMailer#welcome_email: processed outbound mail in 10.4ms
+
+Sent mail to email6@email.com (19.3ms)
+Date: Thu, 25 Feb 2016 21:14:21 +0100
+From: from@example.com
+To: email6@email.com
+Message-ID: <56cf609dd69ba_27e2fa79688185f@simplon-HP-16.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56cf609dd54da_27e2fa7968817e2";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56cf609dd54da_27e2fa7968817e2
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, User6
+===============================================
+
+You have successfully signed up to example.com,
+your username is: User6.
+
+To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+
+Thanks for joining and have a great day!
+
+
+----==_mimepart_56cf609dd54da_27e2fa7968817e2
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, User6</h1>
+    <p>
+      You have successfully signed up to example.com
+      <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_56cf609dd54da_27e2fa7968817e2--
+
+  [1m[35m (6.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'email7@email.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "gender", "city", "citycode", "phone", "subscribe", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "User7"], ["email", "email7@email.com"], ["encrypted_password", "$2a$10$lgLBRPJYtxx4eUDRCM/17eHxQCdycRjEKBxni10.XIp2i.sSZ5Niy"], ["gender", "M"], ["city", "Beijin"], ["citycode", "75865"], ["phone", "0606060606"], ["subscribe", "f"], ["created_at", "2016-02-25 20:14:21.982475"], ["updated_at", "2016-02-25 20:14:21.982475"]]
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.0ms)
+
+UserMailer#welcome_email: processed outbound mail in 9.0ms
+
+Sent mail to email7@email.com (21.1ms)
+Date: Thu, 25 Feb 2016 21:14:21 +0100
+From: from@example.com
+To: email7@email.com
+Message-ID: <56cf609df2f97_27e2fa796882089@simplon-HP-16.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56cf609df1bee_27e2fa7968819e2";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56cf609df1bee_27e2fa7968819e2
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, User7
+===============================================
+
+You have successfully signed up to example.com,
+your username is: User7.
+
+To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+
+Thanks for joining and have a great day!
+
+
+----==_mimepart_56cf609df1bee_27e2fa7968819e2
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, User7</h1>
+    <p>
+      You have successfully signed up to example.com
+      <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_56cf609df1bee_27e2fa7968819e2--
+
+  [1m[35m (5.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'email8@email.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "gender", "city", "citycode", "phone", "subscribe", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "User8"], ["email", "email8@email.com"], ["encrypted_password", "$2a$10$ayoYaw.V50Lsx92ARr/TUO7hKbTMLrAfi6edL3gScIZ8IJFpjsf4S"], ["gender", "M"], ["city", "NewYork"], ["citycode", "47600"], ["phone", "0606060606"], ["subscribe", "t"], ["created_at", "2016-02-25 20:14:22.103546"], ["updated_at", "2016-02-25 20:14:22.103546"]]
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.0ms)
+
+UserMailer#welcome_email: processed outbound mail in 10.7ms
+
+Sent mail to email8@email.com (20.4ms)
+Date: Thu, 25 Feb 2016 21:14:22 +0100
+From: from@example.com
+To: email8@email.com
+Message-ID: <56cf609e1cc19_27e2fa796882268@simplon-HP-16.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56cf609e1bcb5_27e2fa7968821b7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56cf609e1bcb5_27e2fa7968821b7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, User8
+===============================================
+
+You have successfully signed up to example.com,
+your username is: User8.
+
+To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+
+Thanks for joining and have a great day!
+
+
+----==_mimepart_56cf609e1bcb5_27e2fa7968821b7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, User8</h1>
+    <p>
+      You have successfully signed up to example.com
+      <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_56cf609e1bcb5_27e2fa7968821b7--
+
+  [1m[35m (9.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'email9@email.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "gender", "city", "citycode", "phone", "subscribe", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "User9"], ["email", "email9@email.com"], ["encrypted_password", "$2a$10$.U.0XHqMzvFt2TK/VQnDCO7hgdHHauY/0kEban6jBKQKnuTvz9ky2"], ["gender", "F"], ["city", "Amsterdam"], ["citycode", "12345"], ["phone", "0612121212"], ["subscribe", "t"], ["created_at", "2016-02-25 20:14:22.221710"], ["updated_at", "2016-02-25 20:14:22.221710"]]
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.0ms)
+
+UserMailer#welcome_email: processed outbound mail in 19.2ms
+
+Sent mail to email9@email.com (27.5ms)
+Date: Thu, 25 Feb 2016 21:14:22 +0100
+From: from@example.com
+To: email9@email.com
+Message-ID: <56cf609e3c1d8_27e2fa7968824d6@simplon-HP-16.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56cf609e38a45_27e2fa796882384";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56cf609e38a45_27e2fa796882384
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, User9
+===============================================
+
+You have successfully signed up to example.com,
+your username is: User9.
+
+To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+
+Thanks for joining and have a great day!
+
+
+----==_mimepart_56cf609e38a45_27e2fa796882384
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, User9</h1>
+    <p>
+      You have successfully signed up to example.com
+      <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_56cf609e38a45_27e2fa796882384--
+
+  [1m[35m (6.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'email10@email.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "gender", "city", "citycode", "phone", "subscribe", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "User10"], ["email", "email10@email.com"], ["encrypted_password", "$2a$10$9WXDvbiQYvZ7F9eT7rFKUe6rSDzlRTBT4wTOKZ9D1fcIuXhmVKiCG"], ["gender", "F"], ["city", "Moscow"], ["citycode", "47600"], ["phone", "0695959595"], ["subscribe", "f"], ["created_at", "2016-02-25 20:14:22.366549"], ["updated_at", "2016-02-25 20:14:22.366549"]]
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.1ms)
+
+UserMailer#welcome_email: processed outbound mail in 14.2ms
+
+Sent mail to email10@email.com (26.2ms)
+Date: Thu, 25 Feb 2016 21:14:22 +0100
+From: from@example.com
+To: email10@email.com
+Message-ID: <56cf609e5e085_27e2fa796882617@simplon-HP-16.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56cf609e5c522_27e2fa7968825f1";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56cf609e5c522_27e2fa7968825f1
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, User10
+===============================================
+
+You have successfully signed up to example.com,
+your username is: User10.
+
+To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+
+Thanks for joining and have a great day!
+
+
+----==_mimepart_56cf609e5c522_27e2fa7968825f1
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, User10</h1>
+    <p>
+      You have successfully signed up to example.com
+      <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://localhost:3000/users/sign_in.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_56cf609e5c522_27e2fa7968825f1--
+
+  [1m[35m (27.6ms)[0m  COMMIT
