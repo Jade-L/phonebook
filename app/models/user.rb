@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :likes
-
+  has_many :products, through: :likes
   after_create :send_welcome_email
   def send_welcome_email
     UserMailer.welcome_email(self).deliver_now
