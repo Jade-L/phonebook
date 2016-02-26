@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
   end
 
   def newsletter(user)
-    @users = user
+    @user = user
     @url = 'http://localhost:3000/users/sign_in'
       mail(to: user.email, subject: 'Come back !')
   end

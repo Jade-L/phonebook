@@ -2,7 +2,7 @@
 <div class="container">
   <h1>Listing Users</h1>
 
-<table class = "datatables table table-responsive">
+<table class = "datatables table table-hover table-bordered table-condensed">
   <thead>
     <tr>
       <th>Username</th>
@@ -11,6 +11,7 @@
       <th>City</th>
       <th>Citycode</th>
       <th>Email</th>
+      <th>Newsletter</th>
     </tr>
   </thead>
 
@@ -18,17 +19,17 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.username %></td>
-        <td><%= user.gender %></td>
+        <td><%= user.gender == "M" ? "Male" : "Female"%></td>
         <td><%= user.phone %></td>
         <td><%= user.city %></td>
         <td><%= user.citycode %></td>
         <td><%= user.email %></td>
+        <td><%= user.subscribe ? "Yes" : "No"%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 <br>
 
 <%= link_to 'Send Newsletter', send_newsletter_path, remote: true, class: 'btn btn-primary' %>
