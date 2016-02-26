@@ -109,6 +109,7 @@ GEM
       thin (~> 1.5.0)
     method_source (0.8.2)
     mime-types (2.99)
+    mini_magick (4.4.0)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
@@ -227,6 +228,7 @@ DEPENDENCIES
   jquery-datatables-rails (~> 3.3.0)
   jquery-rails
   mailcatcher
+  mini_magick
   pg
   pry
   pry-nav

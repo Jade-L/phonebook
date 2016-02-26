@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 # Uploader
 gem 'carrierwave'
+# image resizer
+gem 'mini_magick'
 # Fancy form
 gem 'bootstrap_form'
 # Css & Js library
