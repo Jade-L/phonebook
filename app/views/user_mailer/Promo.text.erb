@@ -1,0 +1,10 @@
+Hello <%= @user.username %>
+=============================================
+
+we have promotion !
+
+<% @topPromo.each do |product| %>
+  <%= product_path(product) %>
+<% end %>
+
+Have a great day !

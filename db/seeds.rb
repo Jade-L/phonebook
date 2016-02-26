@@ -20,6 +20,24 @@ subscribe = [true, false]
         User.create!(:username => "User#{i+1}", email: "email#{i+1}@email.com", password:"password#{i+1}", password_confirmation:"password#{i+1}", gender: gender.sample, city: city.sample, citycode: citycode.sample, phone: phone.sample, subscribe: subscribe.sample)
 end
 
+Product.all.each do |product|
+  product.remove_picture!
+  product.save
+end
+
+Product.delete_all
+
+(1..50).each do |t|
+  file = t.odd? ? Rails.root.join("images_for_seeds/image1.jpg").open : Rails.root.join("images_for_seeds/image2.jpg").open
+  Product.create!(name: "product#{t}", picture: file)
+end
+
+User.all.each do |user|
+  Product.all.each do |product|
+    Like.create!(product_id: product.id, user_id: user.id) if rand(1..100).even?
+  end
+end
+
 # # Use these variable to  populate text zones
 # text1 = "Donec commodo lacus arcu, vitae iaculis nisi pharetra accumsan. Phasellus nibh ligula, efficitur non metus sit amet, accumsan condimentum magna. Ut non cursus purus. Vestibulum eu lobortis enim. Vivamus mattis dictum tellus et tempus. Maecenas massa nunc, varius at risus eget, euismod varius ipsum. Nam accumsan, est sit amet interdum ultricies, tellus erat semper orci, in posuere urna dolor vitae erat. Aenean vel faucibus tortor. Morbi semper vulputate tortor, nec vulputate leo mollis quis. Vestibulum sit amet tincidunt risus. Vivamus purus nisl, porttitor eget tempor a, gravida eget eros. Fusce eget augue finibus, tincidunt nulla eu, rutrum sapien. Mauris sed semper orci."
 

@@ -1,0 +1,15 @@
+<h1>Hi, <%= @user.username %></h1>
+<p>
+  Pikaboo, we have promotion comme and check them !
+  <br>
+</p>
+
+<% i = 0 %>
+<% @topPromo.each do |product| %>
+ <% i += 1 %>
+ <%= '<div>' if i == 1 || i == 3 %>
+   <span><%= link_to image_tag(product.picture.url(:thumb)), product_path(product) %></span>
+ <%= '</div>' if i == 2 || i == 5 %>
+<% end %>
+
+<p>Have a great day!</p>

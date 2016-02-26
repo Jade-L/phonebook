@@ -21,6 +21,34 @@ class UsersController < ApplicationController
     end
   end
 
+  def promo
+    topProducts = Array.new
+
+    Product.all.each do |product|
+      topProducts.push([product.id, product.likes.count])
+    end
+
+    topProducts.sort_by{ |product_id,likes| likes}.reverse!
+
+    User.all.each do |user|
+      topPromo = Array.new
+
+      topProducts.each do |product_id,likes|
+        topPromo.push(product_id) if user.likes.product_id.include?(product_id)
+        break if topPromo.count = 5
+      end
+
+      UserMailer.promo(user, topPromo).deliver_now if topPromo.present?
+    end
+
+    
+    flash.now[:notice] = "Emails have been sent."
+
+      respond_to do |format|
+          format.js
+      end
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show

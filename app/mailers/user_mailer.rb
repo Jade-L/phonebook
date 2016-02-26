@@ -10,4 +10,11 @@ class UserMailer < ApplicationMailer
     @url = 'http://localhost:3000/users/sign_in'
       mail(to: user.email, subject: 'Come back !')
   end
+
+  def promo(user, topPromo)
+    @user = user
+    @topPromo = topPromo
+    mail(to: user.email, subject: 'The things you liked are sold !')
+  end
+
 end
