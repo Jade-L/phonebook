@@ -7,6 +7,20 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def newsletter
+    users = User.where('subscribe = true')
+
+    users.each do |user|
+      UserMailer.newsletter(user).deliver_now
+    end
+
+    flash.now[:notice] = "Emails have been sent."
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
